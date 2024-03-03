@@ -30,8 +30,8 @@
 </head>
 
 <body class="font-inter">
-    <header class="max-w-[1440px] mx-auto mt-[50px]">
-        <section class="w-[81.25%] mx-auto">
+    <header class="max-w-[1440px] mx-auto mt-8 lg:mt-[50px]">
+        <section class="w-[85%] lg:w-[81.25%] mx-auto">
             <!-- navbar  -->
             <nav class="navbar bg-base-100 flex justify-between">
                 <div class="">
@@ -40,20 +40,20 @@
                 <div class="flex gap-6">
                     <div class="hidden lg:flex">
                         <ul class="menu menu-horizontal flex gap-3 px-1">
-                            <button title="Home"
-                                class="btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
+                            <button data-tip="Home"
+                                class="tooltip btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
                                 <i class="fa-solid fa-house"></i>
                             </button>
-                            <button title="Edit"
-                                class="btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
+                            <button data-tip="Edit"
+                                class="tooltip btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
                                 <i class="fa-solid fa-pen"></i>
                             </button>
-                            <button title="Add"
-                                class="btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
+                            <button data-tip="Add"
+                                class="tooltip btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
                                 <i class="fa-solid fa-user-plus"></i>
                             </button>
-                            <button title="Flag"
-                                class="btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
+                            <button data-tip="Flag"
+                                class="tooltip btn btn-circle text-[rgba(18,19,45,0.6)] bg-[rgba(18,19,45,0.03)]">
                                 <i class="fa-regular fa-flag"></i>
                             </button>
                         </ul>
@@ -66,8 +66,9 @@
             <!-- banner -->
             <div
                 class="bg-[#12132D] bg-[url('images/bgbanner.png')] bg-no-repeat bg-bottom rounded-[32px] w-full mt-6 lg:mt-[50px] flex flex-col lg:flex-row justify-center lg:justify-between">
-                <div class="p-9 lg:p-[99px]">
-                    <h1 class="font-black text-white text-[28px] lg:text-[64px] mb-5">Welcome to the<br>
+                <div class="p-9 lg:p-[99px] text-center lg:text-left">
+                    <h1 class="font-black text-white text-[28px] lg:text-[64px] mb-5">Welcome
+                        to the<br>
                         <span
                             class="bg-gradient-to-r from-[rgb(121,125,252)] to-[rgba(121,125,252,0)] inline-block text-transparent bg-clip-text">ReTro</span>
                         Forum
@@ -93,7 +94,83 @@
             </div>
         </section>
     </header>
-    <main></main>
+    <main class="max-w-[1440px] mx-auto my-9 lg:my-[100px]">
+        <!-- Let's Discuss section -->
+        <section class="w-[85%] lg:w-[81.25%] mx-auto">
+            <div class="text-center max-w-[691px] mx-auto mb-6 lg:mb-12">
+                <h1 class="font-black text-3xl lg:text-[40px] text-[#12132D] mb-4 lg:mb-6">Let’s Discuss</h1>
+                <p class="text-sm lg:text-lg text-[rgba(18,19,45,0.6)]">Yes, you can run unit tests and view the
+                    directly
+                    within
+                    the app. The integrated testing features allow for a streamlined .</p>
+            </div>
+            <!-- main functional section -->
+            <div class="flex flex-col lg:flex-row gap-6 ">
+                <!-- left part -->
+                <div class="flex flex-col gap-6">
+                    <div class="flex gap-6 p-10 bg-[#F3F3F5] rounded-3xl">
+                        <!-- img div -->
+                        <div class="relative">
+                            <div
+                                class="absolute size-[19px] bg-[#FF3434] rounded-full border-2 right-[-6px] top-[-6px]">
+                            </div>
+                            <div class="bg-black size-[72px] rounded-2xl">
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                        <!-- functional part -->
+                        <div class="">
+                            <div class="font-medium text-sm text-[rgba(18,19,45,0.8)] flex gap-5 mb-3">
+                                <span>#Music</span>
+                                <p>Author : <span>Awlad Hossain</span></p>
+                            </div>
+                            <h2 class="font-bold text-xl text-[#12132D] mb-4">10 Kids Unaware of Their Halloween Costume
+                            </h2>
+                            <p class="text-[rgba(18,19,45,0.6)] border-b-2 border-dashed pb-5 max-w-[569px]">It’s one
+                                thing
+                                to subject
+                                yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            <div class="text-[rgba(18,19,45,0.6)] flex gap-7 mt-7">
+                                <div class="flex gap-3 items-center">
+                                    <i class="fa-regular fa-comments"></i>
+                                    <span>560</span>
+                                </div>
+                                <div class="flex gap-3 items-center">
+                                    <i class="fa-regular fa-eye"></i>
+                                    <span>560</span>
+                                </div>
+                                <div class="flex gap-3 items-center">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span>560</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- right part -->
+                <div>
+                    <div class="bg-[rgba(18,19,45,0.05)] p-6 rounded-3xl w-[374px] ">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="font-bold text-xl text-[#12132D]">Title</h2>
+                            <div class="flex items-center gap-2 text-[rgba(18,19,45,0.6)]">
+                                <i class="fa-solid fa-check-double text-[#3DCE09]"></i>
+                                <p>Mark as read (<span>4</span>)</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <div class="p-[15px] bg-white rounded-2xl flex gap-[5px] items-center">
+                                <h3 class="font-semibold text-[#12132D]">10 Kids Unaware of Their Halloween Costume</h3>
+                                <div class="flex gap-3 items-center text-[rgba(18,19,45,0.6)]">
+                                    <i class="fa-regular fa-eye"></i>
+                                    <span>560</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer></footer>
     <script src="JS/script.js"></script>
 </body>
