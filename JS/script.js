@@ -130,6 +130,7 @@ const markRead = (title, viewC) => {
     <div class="flex gap-3 items-center text-[rgba(18,19,45,0.6)]">
     <i class="fa-regular fa-eye"></i>
     <span>${viewC}</span>
+    </div>
     `
     markReadContainer.appendChild(markDiv)
 }
