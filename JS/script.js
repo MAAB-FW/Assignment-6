@@ -161,7 +161,7 @@ const loadSearchData = async (searchValue) => {
             const mCard = document.createElement('div')
             mCard.classList = ""
             mCard.innerHTML = `
-        <div class="flex flex-col lg:flex-row gap-6 p-6 lg:p-10 bg-[#F3F3F5] rounded-3xl">
+        <div class="flex flex-col lg:flex-row gap-6 p-6 lg:p-10 border border-white hover:bg-[rgba(121,125,252,0.1)] hover:border-[#797DFC] bg-[#F3F3F5] rounded-3xl">
                         <!-- img div -->
                         <div class="relative flex justify-center">
                             <div
