@@ -58,7 +58,7 @@ const loadMainData = async () => {
     const data = await res.json()
     mainCardContainer.innerHTML = ""
     data.posts.forEach(item => {
-        console.log(item);
+        // console.log(item);
         let color = ""
         if (item.isActive === true) {
             color = "bg-[#10B981]"
@@ -134,6 +134,74 @@ const markRead = (title, viewC) => {
     markReadContainer.appendChild(markDiv)
 }
 
+const searchInput = document.getElementById('search-input')
 
+const searchButton = () => {
+    const searchV = searchInput.value
+    console.log('cliked');
+    loadSearchData(searchV)
+    searchInput.value = ""
+}
+
+const loadSearchData = async (searchValue) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`)
+    const data = await res.json()
+    mainCardContainer.innerHTML = ""
+    console.log(data.posts);
+    data.posts.forEach(item => {
+        let color = ""
+        if (item.isActive === true) {
+            color = "bg-[#10B981]"
+        } else {
+            color = "bg-[#FF3434]"
+        }
+        const mCard = document.createElement('div')
+        mCard.classList = ""
+        mCard.innerHTML = `
+        <div class="flex flex-col lg:flex-row gap-6 p-6 lg:p-10 bg-[#F3F3F5] rounded-3xl">
+                        <!-- img div -->
+                        <div class="relative flex justify-center">
+                            <div
+                                class="absolute hidden lg:flex size-[19px] ${color} rounded-full border-2 right-[-3%] top-[-3%]">
+                            </div>
+                            <div class="size-[230px] lg:size-[72px] ">
+                                <img class="rounded-2xl" src="${item.image}" alt="">
+                            </div>
+                        </div>
+                        <!-- functional part -->
+                        <div class="w-full">
+                            <div class="font-medium text-sm text-[rgba(18,19,45,0.8)] flex gap-5 mb-3">
+                                <span>#${item.category}</span>
+                                <p>Author : <span>${item.author.name}</span></p>
+                            </div>
+                            <div>
+                            <h2 class="font-bold text-xl text-[#12132D] mb-4">${item.title}
+                            </h2>
+                            <p class="text-[rgba(18,19,45,0.6)] border-b-2 border-dashed pb-5 max-w-[569px]">${item.description}</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4 lg:mt-7">
+                                <div class="text-[rgba(18,19,45,0.6)] flex gap-4 lg:gap-7">
+                                    <div class="flex gap-3 items-center">
+                                        <i class="fa-regular fa-comments"></i>
+                                        <span>${item.comment_count}</span>
+                                    </div>
+                                    <div class="flex gap-3 items-center">
+                                        <i class="fa-regular fa-eye"></i>
+                                        <span>${item.view_count}</span>
+                                    </div>
+                                    <div class="flex gap-3 items-center">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <span>${item.posted_time}</span>
+                                    </div>
+                                </div>
+                                <button onclick="markRead('${item.title}', '${item.view_count}')" class=" btn btn-sm btn-circle text-white bg-[#10B981] rounded-full">
+                                    <i class="fa-solid fa-envelope-circle-check"></i></button>
+                            </div>
+                        </div>
+                    </div>
+        `
+        mainCardContainer.appendChild(mCard)
+    })
+}
 
 loadMainData()
