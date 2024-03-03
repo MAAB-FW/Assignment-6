@@ -104,7 +104,7 @@ const loadMainData = async () => {
                                         <span>${item.posted_time}</span>
                                     </div>
                                 </div>
-                                <button onclick="markRead('${item.title}', '${item.view_count}')" class=" btn btn-sm btn-circle text-white bg-[#10B981] rounded-full">
+                                <button onclick="markRead('${item.title.replace("'", " ")}', '${item.view_count}')" class=" btn btn-sm btn-circle text-white bg-[#10B981] rounded-full">
                                     <i class="fa-solid fa-envelope-circle-check"></i></button>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ const searchInput = document.getElementById('search-input')
 
 const searchButton = () => {
     const searchV = searchInput.value
-    console.log('cliked');
+    // console.log('cliked');
     loadSearchData(searchV)
     searchInput.value = ""
 }
@@ -147,7 +147,7 @@ const loadSearchData = async (searchValue) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`)
     const data = await res.json()
     mainCardContainer.innerHTML = ""
-    console.log(data.posts);
+    // console.log(data.posts);
     data.posts.forEach(item => {
         let color = ""
         if (item.isActive === true) {
@@ -194,7 +194,7 @@ const loadSearchData = async (searchValue) => {
                                         <span>${item.posted_time}</span>
                                     </div>
                                 </div>
-                                <button onclick="markRead('${item.title}', '${item.view_count}')" class=" btn btn-sm btn-circle text-white bg-[#10B981] rounded-full">
+                                <button onclick="markRead('${item.title.replace("'", " ")}', '${item.view_count}')" class=" btn btn-sm btn-circle text-white bg-[#10B981] rounded-full">
                                     <i class="fa-solid fa-envelope-circle-check"></i></button>
                             </div>
                         </div>
