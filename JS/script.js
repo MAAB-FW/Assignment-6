@@ -142,22 +142,25 @@ const searchButton = () => {
     loadSearchData(searchV)
     searchInput.value = ""
 }
-
+const searchSpinner = document.getElementById('spinner')
 const loadSearchData = async (searchValue) => {
+    searchSpinner.classList.remove('hidden')
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`)
     const data = await res.json()
     mainCardContainer.innerHTML = ""
     // console.log(data.posts);
-    data.posts.forEach(item => {
-        let color = ""
-        if (item.isActive === true) {
-            color = "bg-[#10B981]"
-        } else {
-            color = "bg-[#FF3434]"
-        }
-        const mCard = document.createElement('div')
-        mCard.classList = ""
-        mCard.innerHTML = `
+    setTimeout(() => {
+        searchSpinner.classList.add('hidden')
+        data.posts.forEach(item => {
+            let color = ""
+            if (item.isActive === true) {
+                color = "bg-[#10B981]"
+            } else {
+                color = "bg-[#FF3434]"
+            }
+            const mCard = document.createElement('div')
+            mCard.classList = ""
+            mCard.innerHTML = `
         <div class="flex flex-col lg:flex-row gap-6 p-6 lg:p-10 bg-[#F3F3F5] rounded-3xl">
                         <!-- img div -->
                         <div class="relative flex justify-center">
@@ -200,8 +203,9 @@ const loadSearchData = async (searchValue) => {
                         </div>
                     </div>
         `
-        mainCardContainer.appendChild(mCard)
-    })
+            mainCardContainer.appendChild(mCard)
+        })
+    }, 2000)
 }
 
 loadMainData()
