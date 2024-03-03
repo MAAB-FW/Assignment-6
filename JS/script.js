@@ -59,12 +59,6 @@ const loadMainData = async () => {
     mainCardContainer.innerHTML = ""
     data.posts.forEach(item => {
         // console.log(item);
-        let color = ""
-        if (item.isActive === true) {
-            color = "bg-[#10B981]"
-        } else {
-            color = "bg-[#FF3434]"
-        }
         const mCard = document.createElement('div')
         mCard.classList = ""
         mCard.innerHTML = `
@@ -72,7 +66,7 @@ const loadMainData = async () => {
                         <!-- img div -->
                         <div class="relative flex justify-center">
                             <div
-                                class="absolute hidden lg:flex size-[19px] ${color} rounded-full border-2 right-[-3%] top-[-3%]">
+                                class="absolute hidden lg:flex size-[19px] ${item.isActive ? "bg-[#10B981]" : "bg-[#FF3434]"} rounded-full border-2 right-[-3%] top-[-3%]">
                             </div>
                             <div class="size-[230px] lg:size-[72px] ">
                                 <img class="rounded-2xl" src="${item.image}" alt="">
@@ -124,7 +118,7 @@ const markRead = (title, viewC) => {
     countClick.innerText = count
     console.log(title, viewC);
     const markDiv = document.createElement('div')
-    markDiv.classList = "p-[15px] bg-white rounded-2xl flex gap-[5px] items-center"
+    markDiv.classList = "p-[15px] bg-white rounded-2xl flex gap-[5px] items-center justify-between"
     markDiv.innerHTML = `
     <h3 class="font-semibold text-[#12132D]">${title}</h3>
     <div class="flex gap-3 items-center text-[rgba(18,19,45,0.6)]">
