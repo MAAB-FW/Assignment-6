@@ -66,12 +66,14 @@ const loadMainData = async () => {
             mCard.classList = "flex flex-col lg:flex-row gap-6 p-6 lg:p-10 border border-white hover:bg-[rgba(121,125,252,0.1)] hover:border-[#797DFC] bg-[#F3F3F5] rounded-3xl"
             mCard.innerHTML = `
                         <!-- img div -->
-                        <div class="relative flex justify-center">
+                        <div class="flex justify-center">
+                            <div class="relative">
                             <div
-                                class="absolute hidden lg:flex size-[19px] ${item.isActive ? "bg-[#10B981]" : "bg-[#FF3434]"} rounded-full border-2 right-[-3%] top-[-3%]">
+                                class="absolute lg:flex size-[19px] ${item.isActive ? "bg-[#10B981]" : "bg-[#FF3434]"} rounded-full border-2 right-[-3%] top-[-3%]">
                             </div>
-                            <div class="size-[230px] lg:size-[72px] ">
+                            <div class="size-[150px] lg:size-[72px] ">
                                 <img class="rounded-2xl" src="${item.image}" alt="">
+                            </div>
                             </div>
                         </div>
                         <!-- functional part -->
