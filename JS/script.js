@@ -54,15 +54,17 @@ loadLatestPosts()
 
 const mainCardContainer = document.getElementById('main-card-container')
 const loadMainData = async () => {
+    searchSpinner.classList.remove('hidden')
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data = await res.json()
     mainCardContainer.innerHTML = ""
-    data.posts.forEach(item => {
-        // console.log(item);
-        const mCard = document.createElement('div')
-        mCard.classList = ""
-        mCard.innerHTML = `
-        <div class="flex flex-col lg:flex-row gap-6 p-6 lg:p-10 border border-white hover:bg-[rgba(121,125,252,0.1)] hover:border-[#797DFC] bg-[#F3F3F5] rounded-3xl">
+    setTimeout(() => {
+        searchSpinner.classList.add('hidden')
+        data.posts.forEach(item => {
+            // console.log(item);
+            const mCard = document.createElement('div')
+            mCard.classList = "flex flex-col lg:flex-row gap-6 p-6 lg:p-10 border border-white hover:bg-[rgba(121,125,252,0.1)] hover:border-[#797DFC] bg-[#F3F3F5] rounded-3xl"
+            mCard.innerHTML = `
                         <!-- img div -->
                         <div class="relative flex justify-center">
                             <div
@@ -102,10 +104,11 @@ const loadMainData = async () => {
                                     <i class="fa-solid fa-envelope-circle-check"></i></button>
                             </div>
                         </div>
-                    </div>
+                    
         `
-        mainCardContainer.appendChild(mCard)
-    })
+            mainCardContainer.appendChild(mCard)
+        })
+    }, 2000)
 }
 
 const markReadContainer = document.getElementById('mark-read-container')
@@ -147,20 +150,13 @@ const loadSearchData = async (searchValue) => {
     setTimeout(() => {
         searchSpinner.classList.add('hidden')
         data.posts.forEach(item => {
-            let color = ""
-            if (item.isActive === true) {
-                color = "bg-[#10B981]"
-            } else {
-                color = "bg-[#FF3434]"
-            }
             const mCard = document.createElement('div')
-            mCard.classList = ""
+            mCard.classList = "flex flex-col lg:flex-row gap-6 p-6 lg:p-10 border border-white hover:bg-[rgba(121,125,252,0.1)] hover:border-[#797DFC] bg-[#F3F3F5] rounded-3xl"
             mCard.innerHTML = `
-        <div class="flex flex-col lg:flex-row gap-6 p-6 lg:p-10 border border-white hover:bg-[rgba(121,125,252,0.1)] hover:border-[#797DFC] bg-[#F3F3F5] rounded-3xl">
                         <!-- img div -->
                         <div class="relative flex justify-center">
                             <div
-                                class="absolute hidden lg:flex size-[19px] ${color} rounded-full border-2 right-[-3%] top-[-3%]">
+                                class="absolute hidden lg:flex size-[19px] ${item.isActive ? "bg-[#10B981]" : "bg-[#FF3434]"} rounded-full border-2 right-[-3%] top-[-3%]">
                             </div>
                             <div class="size-[230px] lg:size-[72px] ">
                                 <img class="rounded-2xl" src="${item.image}" alt="">
@@ -196,7 +192,6 @@ const loadSearchData = async (searchValue) => {
                                     <i class="fa-solid fa-envelope-circle-check"></i></button>
                             </div>
                         </div>
-                    </div>
         `
             mainCardContainer.appendChild(mCard)
         })
